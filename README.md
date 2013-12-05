@@ -1,2 +1,2 @@
-enticer
-=======
+entice
+======
