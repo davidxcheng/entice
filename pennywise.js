@@ -1,7 +1,12 @@
 module.exports = [{
 		upperBound: 7,
-		roundTo: 10,
+		roundTo: 0,
 		increments: [10, 20, 30]
+	},
+	{
+		upperBound: 17,
+		roundTo: 0,
+		increments: [20, 30, 40]
 	},
 	{
 		upperBound: 99,

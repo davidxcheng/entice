@@ -1,7 +1,3 @@
-/*
-		Run with 'mocha -R spec .'
-*/
-
 var chai = require("chai"),
 	expect = chai.expect,
 	assert = chai.assert,
@@ -9,11 +5,21 @@ var chai = require("chai"),
 
 describe('The Pennywise Profile', function() {
 	describe('Should', function() {
-		it('round to 30 when bid amount is 25', function() {
-			var entice = require("../index"),
-				suggestions = entice.suggestBidAmounts(25, entice.profile.Pennywise);
 
-			suggestions.should.have.length(3)
+		var entice = require('../index'),
+			testCases = [];
+
+		testCases.push({ amount: 1, expected: [10, 20, 30] });
+		testCases.push({ amount: 5, expected: [10, 20, 30] });
+		testCases.push({ amount: 6, expected: [10, 20, 30] });
+		testCases.push({ amount: 7, expected: [10, 20, 30] });
+		testCases.push({ amount: 8, expected: [20, 30, 40] });
+
+		testCases.forEach(function(tc) {
+			it('suggest ' + tc.expected.join(',') + ' when bid amount is ' + tc.amount, function() {
+				var actual = entice.suggestBidAmounts(tc.amount, entice.profile.Pennywise);
+				expect(actual).to.eql(tc.expected);
+			})
 		});
 	});
 /*
