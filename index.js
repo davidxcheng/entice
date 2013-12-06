@@ -18,7 +18,7 @@ function suggestBidAmounts(currentBidAmount, profile) {
 		}
 	}
 
-	if (!rule.roundto)
+	if (rule.roundTo == 0)
 		return rule.increments;
 
 	var roundedBidAmount = rounder(currentBidAmount, rule.roundTo),

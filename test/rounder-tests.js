@@ -7,9 +7,11 @@ describe('Rounder', function() {
 	describe('Should', function() {
 		var cases = [];
 
+		cases.push({ input: { amount: 18, roundTo: 10 }, expected: 20 });
 		cases.push({ input: { amount: 24, roundTo: 10 }, expected: 20 });
 		cases.push({ input: { amount: 25, roundTo: 10 }, expected: 30 });
 		cases.push({ input: { amount: 34, roundTo: 10 }, expected: 30 });
+		cases.push({ input: { amount: 95, roundTo: 10 }, expected: 100 });
 		cases.push({ input: { amount: 999, roundTo: 50 }, expected: 1000 });
 
 		cases.forEach(function(c){
